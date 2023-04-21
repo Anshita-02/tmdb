@@ -54,7 +54,7 @@
     padding: 20px;
     border-radius: 5px;
     position: absolute;
-    top: 90%;
+    top: 60%;
     display: none;
     z-index: 999;
 }
@@ -63,15 +63,26 @@
  display: block;
 }
 
+.Navbar_movie-list:hover{
+    display: block;
+}
+.Navbar_tv-list:hover{
+    display: block;
+}
+
 .Navbar_movie-list ul, .Navbar_tv-list ul {
+ display: flex;
  list-style: none;
  padding-left: 0;
  padding-right: 10px;
+ flex-direction: column;
 }
 
-.Navbar_movie-list ul li, .Navbar_tv-list ul li{
+.Navbar_movie-list ul a, .Navbar_tv-list ul a{
     font-size: 1rem;
     margin-bottom: 5px;
+    text-decoration: none;
+    color: black;
 }
 
 .overlay{
@@ -127,6 +138,11 @@
   min-width: 150px;
 }
 
+.popular_cardholder-card{
+    width: 200px;
+    min-width: 200px;
+}
+
 .tm_cardholder-card img{
     border-radius: 10px;
 }
@@ -145,4 +161,28 @@
     left: 2%;
     padding: 5px;
     color: #fff;
+}
+
+.popular_cardHolder{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    padding: 40px 50px;
+    flex-wrap: wrap;
+}
+
+.popular_cardholder-card{
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+.popular_cardholder-card img{
+    border-radius: 10px;
+}
+.popular_cardholder-card .card-body{
+    padding-left: 10px;
+}
+.popular_card-title{
+    font-size: 1rem;
 }

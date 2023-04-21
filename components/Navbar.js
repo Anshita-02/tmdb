@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Navbar = () => {
@@ -9,10 +10,10 @@ const Navbar = () => {
       <h4 className = "Navbar_movie_heading">Movies</h4>
       <div className = "Navbar_movie-list">
         <ul>
-          <li>Popular</li>
-          <li>Now Playing</li>
-          <li>Upcoming</li>
-          <li>Top Rated</li>
+          <Link href = "/movies/popular">Popular</Link>
+          <Link href = "/movies/now-playing">Now Playing</Link>
+          <Link href = "/movies/upcoming">Upcoming</Link>
+          <Link href = "/movies/top-rated">Top Rated</Link>
         </ul>
       </div>
      </div>
@@ -20,10 +21,10 @@ const Navbar = () => {
       <h4 className = "Navbar_tv_heading">TV Shows</h4>
       <div className = "Navbar_tv-list">
         <ul>
-          <li>Popular</li>
-          <li>Airing Today</li>
-          <li>On TV</li>
-          <li>Top Rated</li>
+          <Link href = "/tv/popular">Popular</Link>
+          <Link href = "/tv/airing-today">Airing Today</Link>
+          <Link href = "/tv/on-tv">On TV</Link>
+          <Link href = "/tv/top-rated">Top Rated</Link>
         </ul>
       </div>
      </div>
