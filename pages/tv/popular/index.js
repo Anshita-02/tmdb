@@ -20,7 +20,7 @@ const index = () => {
       <Navbar/>
       <div className='popular_cardHolder'>
         {PopularTv.map((elem)=>(
-             <div className="popular_cardholder-card" key = {elem.id}>
+             <Link href = {`/tv/${elem.id}`}  className="popular_cardholder-card movie_link" key = {elem.id}>
              <div className='popular_card-header' style = {{position:"relative"}}>
              <img src= {`https://image.tmdb.org/t/p/w500/${elem.poster_path}`} className="card-img-top" alt="..."/>
              <div className = "tm_card_circle">
@@ -29,9 +29,9 @@ const index = () => {
              </div>
              <div className="card-body" style = {{marginTop:"10px"}}>
              <h5 className="popular_card-title">{elem.name}</h5>
-             <small>{elem.first_air_date.split("-").reverse().join("-")}</small>
+             <small style = {{color: "black"}} >{elem.first_air_date.split("-").reverse().join("-")}</small>
              </div>
-         </div>)
+         </Link>)
         )}
         </div>
     </div>
