@@ -12,7 +12,6 @@ const index = () => {
     TopRatedMovies,
     setTopRatedMovies,
   ] = useContext(NowPlayingMoviesContext);
-  const [pageCount, setpageCount] = useState();
   const [totalLength, settotalLength] = useState();
   const [curPage, setcurPage] = useState(1);
 
@@ -22,8 +21,8 @@ const index = () => {
     );
     console.log(data.results);
     console.log(data);
-    await data &&  settotalLength(data.total_results);
     setNowPlayingMovies(()=>(data.results));
+    await data &&  settotalLength(data.total_results);
     setcurPage(curPage+1)
   };
 
@@ -38,27 +37,16 @@ const index = () => {
     .then((data)=>{
       console.log(data);
       const nowcurmovies =  [...NowPlayingMovies, ...data.data.results];
-      setNowPlayingMovies([...NowPlayingMovies, ...data.data.results]);
+      try {
+         setNowPlayingMovies([...NowPlayingMovies, ...data.data.results]);
+         setcurPage(curPage+1);
+      } catch (error) {
+        console.log(error)
+      }
       console.log(nowcurmovies);
       console.log(NowPlayingMovies);
-    })
-      
+    })    
   }
-  // const fetchMoreDa = async ()=>{
-  //   let {data }= await fetchMoreDat();
-  //   console.log(data);
-  //   const nowcurmovies =  [...NowPlayingMovies, ...data.results];
-  //   setNowPlayingMovies(()=>(NowPlayingMovies.concat(data.results)));
-  //   console.log(nowcurmovies);
-  //   console.log(NowPlayingMovies);
-  // }
- 
-  // const fetchMoreData = async ()=>{
-  //   await fetchMoreDa();
-  //   setcurPage(curPage+1);
-  //   console.log(NowPlayingMovies);
-  // }
-
   useEffect(() => {
      getNowPlayingMovies();
 
@@ -69,12 +57,14 @@ const index = () => {
       <Navbar />
       <div className="popular_cardHolder">
         <InfiniteScroll
-          dataLength = {totalLength? totalLength:20}
+          dataLength = {curPage*20}
           next={fetchMoreData}
-          hasMore={true}
-          loader={<h4>Loading...</h4>}
+          hasMore={NowPlayingMovies.length< totalLength?true:false}
+          loader={<h4 className="Loader">Loading...</h4>}
+          className="popular_cardHolder"
         >
-          {NowPlayingMovies.map((elem) => (
+          {NowPlayingMovies?
+          NowPlayingMovies.map((elem) => (
             <Link
               href={`/movies/${elem.id}`}
               className="popular_cardholder-card movie_link"
@@ -96,11 +86,11 @@ const index = () => {
               <div className="card-body" style={{ marginTop: "10px" }}>
                 <h5 className="popular_card-title">{elem.original_title}</h5>
                 <small style={{ color: "black" }}>
-                  {elem.release_date.split("-").reverse().join("-")}
+                  {elem.release_date && elem.release_date.split("-").reverse().join("-")}
                 </small>
               </div>
             </Link>
-          ))}
+          )):"Loading"}
         </InfiniteScroll>
       </div>
     </div>

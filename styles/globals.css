@@ -270,3 +270,9 @@
 .progress-bar:hover{
     scale: 1.05;
 }
+
+.Loader{
+    font-weight: 200;
+    color: #5a5757;
+    font-size: 1rem;
+}
