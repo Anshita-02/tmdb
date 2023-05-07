@@ -81,7 +81,7 @@ const index = () => {
             </div>
             <div className="card-body" style={{ marginTop: "10px" }}>
               <h5 className="popular_card-title">{elem.original_title}</h5>
-              <small style={{ color: "black" }}>
+              <small className = "date" style={{ color: "black" }}>
                 {elem.release_date && elem.release_date.split("-").reverse().join("-")}
               </small>
             </div>

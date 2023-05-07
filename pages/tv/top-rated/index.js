@@ -64,7 +64,7 @@ const index = () => {
              </div>
              <div className="card-body" style = {{marginTop:"10px"}}>
              <h5 className="popular_card-title">{elem.name}</h5>
-             <small style = {{color: "black"}} >{elem.first_air_date && elem.first_air_date.split("-").reverse().join("-")}</small>
+             <small className = "date" style = {{color: "black"}} >{elem.first_air_date && elem.first_air_date.split("-").reverse().join("-")}</small>
              </div>
          </Link>)
         ):"Loading"}

@@ -4,8 +4,11 @@ import React from 'react'
 const Navbar = () => {
   return (
     <div className='Navbar_nav '>
+      <div className='left'>
      <h1 className='Navbar_logo mr-4'>TMDB</h1>
      <div className='Navbar_togglebtn'></div>
+     </div>
+     <div className='right'>
      <div className = "Navbar_movie">
       <h4 className = "Navbar_movie_heading">Movies</h4>
       <div className = "Navbar_movie-list">
@@ -18,7 +21,7 @@ const Navbar = () => {
       </div>
      </div>
      <div className = "Navbar_tv">
-      <h4 className = "Navbar_tv_heading">TV Shows</h4>
+      <h4 className = "Navbar_tv_heading" style ={{width:"100%", whiteSpace:"nowrap"}}>TV Shows</h4>
       <div className = "Navbar_tv-list">
         <ul>
           <Link href = "/tv/popular">Popular</Link>
@@ -27,6 +30,7 @@ const Navbar = () => {
           <Link href = "/tv/top-rated">Top Rated</Link>
         </ul>
       </div>
+     </div>
      </div>
     </div>
   )

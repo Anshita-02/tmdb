@@ -31,7 +31,7 @@ const TrendingMovies = () => {
              </div>
              <div className="card-body" style = {{marginTop:"10px"}}>
              <h5 className="card-title">{elem.original_title}</h5>
-             <small>{elem.release_date}</small>
+             <small className='date'>{elem.release_date}</small>
              </div>
          </div>)
         )}

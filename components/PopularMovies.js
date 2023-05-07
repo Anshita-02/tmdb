@@ -19,7 +19,7 @@ const PopularMovies = () => {
 
   return (
     <div className = "trendingMovie">
-        <h3 className='tm_heading'>Popular</h3>
+        <h3 className='tm_heading'>Popular Movies</h3>
         <div className = "tm_cardholder">
         {PopularMovies.map((elem)=>(
              <div className="tm_cardholder-card" key = {elem.id}>
@@ -31,7 +31,7 @@ const PopularMovies = () => {
              </div>
              <div className="card-body" style = {{marginTop:"10px"}}>
              <h5 className="card-title">{elem.original_title}</h5>
-             <small>{elem.release_date}</small>
+             <small className='date'>{elem.release_date}</small>
              </div>
          </div>)
         )}
