@@ -6,7 +6,7 @@ const NpmContext = (props) => {
     const [NowPlayingMovies, setNowPlayingMovies] = useState([]);
     // console.log(NowPlayingMovies)
     const [TopRatedMovies, setTopRatedMovies] = useState([]);
-   console.log(TopRatedMovies);
+  //  console.log(TopRatedMovies);
    return (
      <NowPlayingMoviesContext.Provider value = {[NowPlayingMovies, setNowPlayingMovies, TopRatedMovies, setTopRatedMovies]}>
          {props.children}

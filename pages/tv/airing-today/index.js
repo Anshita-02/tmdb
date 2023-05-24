@@ -12,21 +12,21 @@ const index = () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/tv/airing_today?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=1`
     );
-    console.log(data.results);
+    // console.log(data.results);
     setAiringTv(data.results);
     await data &&  settotalLength(data.total_results);
     setcurPage(curPage+1)
   };
 
   
-  console.log(totalLength);
+  // console.log(totalLength);
   const fetchMoreData = async()=>{
-    console.log(`https://api.themoviedb.org/3/tv/airing_today?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=${curPage}`);
+    // console.log(`https://api.themoviedb.org/3/tv/airing_today?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=${curPage}`);
     axios.get(
       `https://api.themoviedb.org/3/tv/airing_today?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=${curPage}`
     )
     .then((data)=>{
-      console.log(data);
+      // console.log(data);
       const nowcurmovies =  [...AiringTv, ...data.data.results];
       try {
          setAiringTv([...AiringTv, ...data.data.results]);
@@ -34,8 +34,8 @@ const index = () => {
       } catch (error) {
         console.log(error)
       }
-      console.log(nowcurmovies);
-      console.log(AiringTv);
+      // console.log(nowcurmovies);
+      // console.log(AiringTv);
     })
       
   }

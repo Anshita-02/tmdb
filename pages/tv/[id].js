@@ -9,7 +9,7 @@ const movie = () => {
   const [singleMovie, setsingleMovie] = useState(null);
   const router = useRouter();
   const { id } = router.query;
-  console.log(id);
+  // console.log(id);
 
   const GetSingleMovie = async () => {
     console.log("u called me");
@@ -17,7 +17,7 @@ const movie = () => {
       let json = await axios.get(
         `https://api.themoviedb.org/3/tv/${id}?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US`
       );
-      console.log(json.data);
+      // console.log(json.data);
       setsingleMovie(json.data);
     }
   };
@@ -25,7 +25,7 @@ const movie = () => {
   useEffect(() => {
     GetSingleMovie();
   }, [id]);
-  console.log(singleMovie);
+  // console.log(singleMovie);
 
   if (singleMovie) {
     var ProgressBarStyle = {

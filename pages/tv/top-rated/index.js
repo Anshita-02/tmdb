@@ -14,20 +14,20 @@ const index = () => {
 
   const getTopRatedTv = async()=>{
    const {data} = await axios.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=1`);
-   console.log(data.results);
+  //  console.log(data.results);
    setTopRatedTv(data.results)
    await data &&  settotalLength(data.total_results);
    setcurPage(curPage+1)
   }
  
-  console.log(totalLength);
+  // console.log(totalLength);
   const fetchMoreData = async()=>{
-    console.log(`https://api.themoviedb.org/3/tv/top_rated?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=${curPage}`);
+    // console.log(`https://api.themoviedb.org/3/tv/top_rated?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=${curPage}`);
     axios.get(
       `https://api.themoviedb.org/3/tv/top_rated?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=${curPage}`
     )
     .then((data)=>{
-      console.log(data);
+      // console.log(data);
       const nowcurmovies =  [...TopRatedTv, ...data.data.results];
       try {
          setTopRatedTv([...TopRatedTv, ...data.data.results]);
@@ -35,8 +35,8 @@ const index = () => {
       } catch (error) {
         console.log(error)
       }
-      console.log(nowcurmovies);
-      console.log(TopRatedTv);
+      // console.log(nowcurmovies);
+      // console.log(TopRatedTv);
     })    
   }
   useEffect(()=>{

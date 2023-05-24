@@ -21,15 +21,15 @@ const index = () => {
     setcurPage(curPage+1)
   };
 
-  console.log(totalLength);
+  // console.log(totalLength);
 
   const fetchMoreData = async()=>{
-    console.log(`https://api.themoviedb.org/3/movie/popular?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=${curPage}`);
+    // console.log(`https://api.themoviedb.org/3/movie/popular?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=${curPage}`);
     axios.get(
       `https://api.themoviedb.org/3/movie/popular?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=${curPage}`
     )
     .then((data)=>{
-      console.log(data);
+      // console.log(data);
       const nowcurmovies =  [...PopularMovies, ...data.data.results];
       try {
          setPopularMovies([...PopularMovies, ...data.data.results]);
@@ -37,8 +37,8 @@ const index = () => {
       } catch (error) {
         console.log(error)
       }
-      console.log(nowcurmovies);
-      console.log(PopularMovies);
+      // console.log(nowcurmovies);
+      // console.log(PopularMovies);
     })
       
   }
@@ -47,7 +47,7 @@ const index = () => {
       getPopularMovies();
     }
   }, []);
-  console.log(PopularMovies);
+  // console.log(PopularMovies);
   return (
     <div>
       <Navbar />

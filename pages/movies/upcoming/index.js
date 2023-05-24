@@ -15,23 +15,23 @@ const index = () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=1`
     );
-    console.log(data.results);
+    // console.log(data.results);
     await setUpcomingMovies(data.results);
-    console.log(UpcomingMovies);
-    console.log(data);
+    // console.log(UpcomingMovies);
+    // console.log(data);
     await data &&  settotalLength(data.total_results);
     setcurPage(curPage+1)
   };
 
-  console.log(totalLength);
+  // console.log(totalLength);
 
   const fetchMoreData = async()=>{
-    console.log(`https://api.themoviedb.org/3/movie/upcoming?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=${curPage}`);
+    // console.log(`https://api.themoviedb.org/3/movie/upcoming?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=${curPage}`);
     axios.get(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=223667d1239871fc4b6eeef8d0d6def8&language=en-US&page=${curPage}`
     )
     .then((data)=>{
-      console.log(data);
+      // console.log(data);
       const nowcurmovies =  [...UpcomingMovies, ...data.data.results];
       try {
          setUpcomingMovies([...UpcomingMovies, ...data.data.results]);
